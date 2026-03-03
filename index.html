@@ -102,7 +102,7 @@
 
     <!-- hero image -->
      <div class="flex-1">
-      <img src="assets/hero-student.png" alt="">
+      <img src="./assets/hero-student.png" alt="">
      </div>
   </section>
 
@@ -113,22 +113,48 @@
 
    <div id="lesson-container" class="flex gap-4 justify-center flex-wrap my-10"></div>
 
-   <div id="word-container" class="bg-gray-200 w-11/12 mx-auto p-10 rounded-2xl grid grid-cols-3 gap-4">
-
-    <!-- <div class="card bg-white pt-16 pb-10 px-10 text-center space-y-2">
-      <p class="text-2xl font-bold">Eager</p>
-      <p class="font-medium">Meaning /Pronounciation</p>
-      <div class="font-bangla text-xl text-gray-700" >"দ্বিধা করা / হেজিটেট"</div>
-
-      <div class=" mt-10 flex justify-between items-center">
-        <button class="btn bg-gray-100 text-gray-600"><i class="fa-solid fa-circle-info"></i></button>
-         <button class="btn bg-gray-100 text-gray-600"><i class="fa-solid fa-circle-info"></i></button>
-      </div> -->
+   <div id="word-container" class="bg-gray-100 w-11/12 mx-auto p-10 rounded-2xl grid grid-cols-3 gap-4 mb-6">
+    
+    <div class="text-center col-span-full space-y-2">
+      <p class="text-xl text-gray-500 font-bangla">আপনি এখনো কোন Lesson Select করেন নি</p>
+      <p class="text-4xl font-bangla">একটি Lesson Select করুন।</p>
+    </div>
      
 
     </div>
-
-   </div>
+   
+    <!-- Open the modal using ID.showModal() method -->
+<!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
+<dialog id="word_details" class="modal modal-bottom sm:modal-middle">
+  <div class="modal-box space-y-4">
+    <div>
+      <p class="font-bangla font-bold text-xl"><span>eagr</span> <span>(<i class="fa-solid fa-microphone-lines"></i>:ইগার)</span></p>
+    </div>
+    <div>
+      <p class="font-bold">Meaning</p>
+      <p class="font-bangla">আগ্রহী</p>
+    </div>
+    <div>
+      <p class="font-bold">Example</p>
+      <p class=" text-gray-600">The kids were eager to open their gifts.</p>
+    </div>
+    <div>
+      <p class="font-bold font-bangla">সমার্থক শব্দ গুলো</p>
+      <div class="flex gap-4">
+          <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">Enthusiastic</p>
+      <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">Enthusiastic</p>
+      <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">Enthusiastic</p>
+      </div>
+    
+    </div>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button in form, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>
    <script src="script/index.js"></script>
 </body>
 </html>
