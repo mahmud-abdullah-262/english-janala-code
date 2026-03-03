@@ -34,6 +34,7 @@ const removeActive = () => {
 
 // load word function
 const loadWord = (id) => {
+  wordSpinner(true);
   const url = `https://openapi.programming-hero.com/api/level/${id}`;
 
   fetch(url)
@@ -47,6 +48,7 @@ const loadWord = (id) => {
 }
 
 const displayWords = (words) => {
+  
   const wordContainer = document.getElementById('word-container');
   wordContainer.innerHTML = '';
 
@@ -58,6 +60,7 @@ const displayWords = (words) => {
       <p class="text-4xl font-bangla">নেক্সট Lesson এ যান</p>
     </div>
     `;
+    wordSpinner(false);
     return
   }
 
@@ -87,7 +90,8 @@ const displayWords = (words) => {
       </div>
   `
 
-  wordContainer.appendChild(card)
+  wordContainer.appendChild(card);
+  wordSpinner(false)
   });
   
 }
@@ -132,9 +136,7 @@ const showWordDetails = (details) => {
     <div>
       <p class="font-bold font-bangla">সমার্থক শব্দ গুলো</p>
       <div class="flex gap-4">
-          <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">${details.synonyms[0]}</p>
-      <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">${details.synonyms[1]}</p>
-      <p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">${details.synonyms[2]}</p>
+          ${synonyms(details.synonyms)}
       </div>
     
     </div>
@@ -151,5 +153,18 @@ const showWordDetails = (details) => {
 }
 
 
+const synonyms = (synArr) => {
+  const htmlElmt = synArr.map(el => `<p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">${el}</p>`)
+  return htmlElmt.join(' ')
+}
 
+const wordSpinner = (status) => {
+  if(status === true){
+    document.getElementById('word-spinner').classList.remove('hidden');
+    document.getElementById('word-container').classList.add('hidden');
+  } else{
+    document.getElementById('word-container').classList.remove('hidden');
+    document.getElementById('word-spinner').classList.add('hidden');
+  }
+}
 loadLesson()
