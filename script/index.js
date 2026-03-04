@@ -1,3 +1,9 @@
+// pronounce Word
+function pronounceWord(word) {
+  const utterance = new SpeechSynthesisUtterance(word);
+  utterance.lang = "en-EN"; // English
+  window.speechSynthesis.speak(utterance);
+}
 
 // load lesson function
 const loadLesson = () => {
@@ -82,7 +88,7 @@ const displayWords = (words) => {
         
         </button>
 
-         <button class="btn bg-gray-100 text-gray-600">
+         <button onclick="pronounceWord('${word.word}')" class="btn bg-gray-100 text-gray-600">
          
         <i class="fa-solid fa-volume-high"></i>
          
@@ -167,4 +173,37 @@ const wordSpinner = (status) => {
     document.getElementById('word-spinner').classList.add('hidden');
   }
 }
+
+// search function
+const searchWord = () =>{
+  removeActive()
+  const searchInput = document.getElementById('search-input');
+  const searchValue = searchInput.value.trim().toLowerCase().replaceAll(" ", "")
+
+  const allWordUrl = 'https://openapi.programming-hero.com/api/words/all';
+
+  fetch(allWordUrl)
+  .then(response => response.json())
+  .then(data => {
+    const allWord = data.data;
+    const filteredWord = allWord.filter(word => word.word.toLowerCase().includes(searchValue));
+
+    if(filteredWord.length === 0){
+      document.getElementById('word-container').innerHTML = `
+      <div class="text-center col-span-full space-y-2">
+      <img class="mx-auto" src="./assets/alert-error.png" alt="">
+      <p class="text-xl text-gray-500 font-bangla">কোন শব্দ খুঁজে পাওয়া যায় নি।</p>
+      <p class="text-4xl font-bangla">অনুগ্রহ করে সঠিক বানান লিখে সার্চ করুন।</p>
+    </div>
+      `
+      return
+    }
+    
+    displayWords(filteredWord)
+  })
+  
+}
+
+
 loadLesson()
+

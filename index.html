@@ -113,6 +113,20 @@
 
    <div id="lesson-container" class="flex gap-4 justify-center flex-wrap my-10"></div>
 
+   
+<!-- search -->
+ <section class="flex justify-center mb-10">
+  <div class="join">
+  <div>
+    <label class="input validator join-item">
+     
+      <input id="search-input" type="text" placeholder="search Vocabularies now" required />
+    </label>
+    
+  </div>
+  <button onclick="searchWord()" id="search-btn" class="btn btn-primary join-item">Search</button>
+</div>
+ </section>
 
    <!-- spinner -->
     <section id="word-spinner" class="flex justify-center items-center hidden"><span class="loading loading-dots loading-xl"></span></section>
@@ -125,7 +139,7 @@
      
 
     </div>
-   
+
     <!-- Open the modal using ID.showModal() method -->
 <!-- <button class="btn" onclick="my_modal_5.showModal()">open modal</button> -->
 <dialog id="word_details" class="modal modal-bottom sm:modal-middle">
