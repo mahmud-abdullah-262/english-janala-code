@@ -16,7 +16,7 @@ const loadLesson = () => {
  .then(lessons => displayLesson(lessons.data))
 }
 
-// display json function
+// display lesson function
 const displayLesson = (lessons) => {
 const lessonsContainer = document.getElementById('lesson-container');
 lessonsContainer.innerHTML = '';
@@ -52,7 +52,7 @@ const loadWord = (id) => {
     displayWords(words.data);
   }) 
 }
-
+// display word function
 const displayWords = (words) => {
   
   const wordContainer = document.getElementById('word-container');
@@ -102,6 +102,7 @@ const displayWords = (words) => {
   
 }
 
+// load word details function
 const loadWordDetails = async (id) =>{
   const url = `https://openapi.programming-hero.com/api/word/${id}`;
   const getUrl = await fetch(url);
@@ -109,19 +110,6 @@ const loadWordDetails = async (id) =>{
   showWordDetails(data.data);
 }
 
-// "word": "Zephyr",
-// "meaning": "মৃদু বাতাস / হালকা হাওয়া",
-// "pronunciation": "জেফার",
-// "level": 5,
-// "sentence": "A gentle zephyr made the leaves rustle.",
-// "points": 5,
-// "partsOfSpeech": "noun",
-// "synonyms": [
-// "breeze",
-// "wind",
-// "gust"
-// ],
-// "id": 50
 
 const showWordDetails = (details) => {
   const detailsModal = document.getElementById('word_details');
@@ -158,12 +146,13 @@ const showWordDetails = (details) => {
   
 }
 
-
+// synonyms creating function
 const synonyms = (synArr) => {
   const htmlElmt = synArr.map(el => `<p class="font-medium text-gray-600 bg-gray-200 rounded-sm p-2">${el}</p>`)
   return htmlElmt.join(' ')
 }
 
+// spinner function
 const wordSpinner = (status) => {
   if(status === true){
     document.getElementById('word-spinner').classList.remove('hidden');
@@ -204,6 +193,6 @@ const searchWord = () =>{
   
 }
 
-
+// initial render
 loadLesson()
 
