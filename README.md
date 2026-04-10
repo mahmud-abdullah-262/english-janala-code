@@ -1,3 +1,7 @@
+![08](https://github.com/user-attachments/assets/7a7dca69-7754-4562-aa6b-894e62a2c41a)
+![23126584_202](https://github.com/user-attachments/assets/e2f57261-824a-475a-a2fe-d094311724ed)
+
+
 ## 📖 English Janala  
 
 **English Janala** is a simple and user-friendly web application designed to help people learn English words in an organized and effective way.  
